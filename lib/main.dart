@@ -19,6 +19,8 @@ const _buttonColor = Colors.black;
 const _buttonPressedColor = Colors.white;
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized(); 
+
   SystemChrome.setPreferredOrientations([ DeviceOrientation.portraitUp ])
     .then((_) {
       runApp(new MyApp());
