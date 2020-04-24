@@ -1,6 +1,7 @@
 import 'package:audioplayers/audio_cache.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'button.dart';
 
 const sounds = [
   'hat.wav',
@@ -16,7 +17,7 @@ const sounds = [
 
 const _backgroundColor = Colors.white;
 const _buttonColor = Colors.black;
-const _buttonPressedColor = Colors.white;
+const _buttonPressedColor = Colors.purple;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized(); 
@@ -59,18 +60,11 @@ class MyHomePage extends StatelessWidget {
           crossAxisSpacing: buttonSpacing,
           physics: new NeverScrollableScrollPhysics(),
           children: sounds.map<Widget>((String fileName) {
-            return Container(
-                decoration: BoxDecoration(
-                  color: _buttonColor,
-                ),
-                child: Material(
-                  color: Colors.transparent,
-                  child: InkWell(
-                    splashColor: _buttonPressedColor,
-                    onTap: () => playSound(fileName),
-                  ),
-                ),
-              );
+            return Button(
+              buttonColor: _buttonColor,
+              buttonPressedColor: _buttonPressedColor,
+              soundFileName: fileName
+            );
           }).toList(),
         ),
       ),
